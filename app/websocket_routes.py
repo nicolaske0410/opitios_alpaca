@@ -719,10 +719,12 @@ class SingletonWebSocketManager:
                 "bid_size": safe_get_value(data, "bs"),
                 "ask_size": safe_get_value(data, "as")
             })
-        else:  # 交易数据
+        else:  # trade 数据
+            size = safe_get_value(data, "s", 0)
             broadcast_msg.update({
                 "price": safe_get_value(data, "p"),
-                "size": safe_get_value(data, "s")
+                "size": size,
+                "block_trade": size >= BLOCK_TRADE_THRESHOLD  # 自动标记大宗交易
             })
         
         # 获取需要广播的客户端列表（在锁内快速获取快照）
