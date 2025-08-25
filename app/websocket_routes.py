@@ -49,6 +49,7 @@ class SingletonWebSocketManager:
     _instance: Optional['SingletonWebSocketManager'] = None
     _instance_lock = threading.Lock()  # 线程级别的锁
     _instance_init_lock = asyncio.Lock()  # 异步级别的锁
+    BLOCK_TRADE_THRESHOLD = 50  # 可按需求调整
     
     # Alpaca官方端点
     STOCK_WS_URL = "wss://stream.data.alpaca.markets/v2/iex"
