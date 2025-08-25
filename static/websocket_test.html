@@ -420,7 +420,7 @@
                 <div style="margin-bottom: 15px; padding: 10px; background: rgba(255,255,255,0.05); border-radius: 5px;">
                     <div style="margin-bottom: 10px;">
                         <strong>订阅管理:</strong>
-                        <input type="text" id="new-option-symbol" placeholder="输入期权代码 (如: AAPL250808C00210000)" 
+                        <input type="text" id="new-option-symbol" placeholder="输入期权代码 (如: AAPL250829C00235000)" 
                                style="margin-left: 10px; padding: 5px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.3); color: white; border-radius: 3px;">
                         <button onclick="addOptionSubscription()" style="margin-left: 5px; padding: 5px 10px;">添加订阅</button>
                     </div>
@@ -537,14 +537,14 @@
                     <h3>默认测试数据</h3>
                     <ul>
                         <li><strong>测试端点股票:</strong> FAKEPACA (测试专用)</li>
-                        <li><strong>生产端点股票:</strong> AAPL, TSLA, NVDA, MRVL, PLTR等</li>
+                        <li><strong>生产端点股票:</strong> AAPL, TSLA, NVDA, UNH, PLTR等</li>
                         <li><strong>默认期权代码:</strong></li>
-                        <li style="margin-left: 20px;">UNIT250815C00007000, TSLA250808C00310000</li>
-                        <li style="margin-left: 20px;">TSLA260918C00750000, CRWV250808C00125000</li>
-                        <li style="margin-left: 20px;">MRVL250808C00080000, NVDA250808C00180000</li>
-                        <li style="margin-left: 20px;">BRBR250815C00035000, PLTR250808P00170000</li>
-                        <li style="margin-left: 20px;">TSLA250808P00300000, FSLR250808P00182500</li>
-                        <li style="margin-left: 20px;">AAPL250808C00210000, NVDA250808P00170000</li>
+                        <li style="margin-left: 20px;">AAPL250829C00240000, TSLA250829C00310000</li>
+                        <li style="margin-left: 20px;">TSLA250829C00300000, CRWV250829C00125000</li>
+                        <li style="margin-left: 20px;">UNH250829C000300000, NVDA250829C00180000</li>
+                        <li style="margin-left: 20px;">GOOGL250829C00205000, PLTR250829P00150000</li>
+                        <li style="margin-left: 20px;">TSLA250829P00300000, AAPL250829P00245000</li>
+                        <li style="margin-left: 20px;">AAPL250829C00250000, NVDA250829P00175000</li>
                         <li><strong>期权WebSocket:</strong> wss://stream.data.alpaca.markets/v1beta1/indicative</li>
                         <li><strong>期权数据格式:</strong> MsgPack (二进制) ✅ 已支持</li>
                         <li><strong>MsgPack库状态:</strong> <span id="msgpack-status">检测中...</span></li>
@@ -569,18 +569,18 @@
         
         // 默认期权订阅列表
         let defaultOptionSymbols = [
-            'UNIT250815C00007000',
-            'TSLA250808C00310000', 
-            'TSLA260918C00750000',
-            'CRWV250808C00125000',
-            'MRVL250808C00080000',
-            'NVDA250808C00180000',
-            'BRBR250815C00035000',
-            'PLTR250808P00170000',
-            'TSLA250808P00300000',
+            'AAPL250829C00240000',
+            'TSLA250829C00310000', 
+            'TSLA250829C00300000',
+            'CRWV250829C00125000',
+            'UNH250829C000300000',
+            'NVDA250829C00180000',
+            'GOOGL250829C00205000',
+            'PLTR250829P00150000',
+            'TSLA250829P00300000',
             'FSLR250808P00182500',
-            'AAPL250808C00210000',
-            'NVDA250808P00170000'
+            'AAPL250829P00245000',
+            'NVDA250829P00175000'
         ];
         let subscribedOptionSymbols = [...defaultOptionSymbols];
         let jwtToken = null;
@@ -1526,7 +1526,7 @@
             try {
                 const testData = { 
                     action: 'test', 
-                    symbol: 'AAPL250808C00210000', 
+                    symbol: 'AAPL250829C00235000', 
                     timestamp: Date.now() 
                 };
                 
